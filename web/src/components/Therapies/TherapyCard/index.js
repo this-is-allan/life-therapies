@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import faker from "faker";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
-const TherapyCard = ({ therapy }) => (
+const TherapyCard = memo(({ therapy }) => (
   <Card>
     <CardImg top width="100%" src={therapy.cover} alt="" />
     <CardBody>
@@ -12,7 +12,7 @@ const TherapyCard = ({ therapy }) => (
       <CardTitle>{therapy.title}</CardTitle>
     </CardBody>
   </Card>
-);
+));
 
 TherapyCard.propTypes = {
   therapy: PropTypes.shape({
