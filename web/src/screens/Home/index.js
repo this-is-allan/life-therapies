@@ -1,5 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-const HomeScreen = () => <div>Home</div>;
+import TherapiesCardsList from "../../containers/Therapies/CardsList";
+
+const HomeScreen = () => (
+  <Fragment>
+    <TherapiesCardsList />
+  </Fragment>
+);
 
 export default HomeScreen;
