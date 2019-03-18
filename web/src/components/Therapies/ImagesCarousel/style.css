@@ -1,0 +1,11 @@
+.images-carousel {
+  height: 550px;
+  background-color: #f8f8f8;
+}
+
+.images-carousel img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
