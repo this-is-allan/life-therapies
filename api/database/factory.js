@@ -17,8 +17,17 @@ const Factory = use("Factory");
 Factory.blueprint("App/Models/Therapy", (faker, index, data) => {
   const defaultValue = {
     title: faker.sentence(),
-    description: faker.paragraph({ sentences: 5 })
-    // category_id: faker.integer({ min: 1, max: 7 }),
+    description: faker.paragraph({ sentences: 5 }),
+    category_id: faker.integer({ min: 1, max: 7 })
+  };
+
+  return Object.assign(defaultValue, data);
+});
+
+Factory.blueprint("App/Models/Category", (faker, index, data) => {
+  const defaultValue = {
+    name: data.name,
+    color: faker.color({ format: "hex" })
   };
 
   return Object.assign(defaultValue, data);

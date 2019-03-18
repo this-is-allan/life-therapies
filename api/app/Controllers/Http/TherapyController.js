@@ -18,7 +18,9 @@ class TherapyController {
    * @param {Response} ctx.response
    */
   async index({ request, response }) {
-    const therapies = await Therapy.all();
+    const therapies = await Therapy.query()
+      .with("category")
+      .fetch();
     return therapies;
   }
 
