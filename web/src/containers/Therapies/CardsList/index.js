@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import faker from "faker";
 import { Col } from "reactstrap";
 
-import TherapyCard from "../../../components/Therapies/TherapyCard";
+import TherapyCard from "../../../components/Therapies/Card";
 
 const therapies = [
   {

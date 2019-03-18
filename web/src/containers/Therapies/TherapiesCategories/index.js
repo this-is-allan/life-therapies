@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import CategoriesCarousel from "../../../components/Categories/CategoriesCarousel";
+import CategoriesCarousel from "../../../components/Categories/Carousel";
 
 const categories = [
   {
