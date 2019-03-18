@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import faker from "faker";
+import PropTypes from "prop-types";
 import { Col } from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/Card";
@@ -63,7 +64,12 @@ const therapies = [
   }
 ];
 
-export default class TherapiesCardsList extends Component {
+class TherapiesCardsList extends Component {
+  componentDidMount = async () => {
+    const { category } = this.props;
+    category && console.log("pesquisando por:", category);
+  };
+
   render() {
     return therapies.map(therapy => (
       <Col key={therapy.id} md={3}>
@@ -72,3 +78,9 @@ export default class TherapiesCardsList extends Component {
     ));
   }
 }
+
+TherapiesCardsList.propTypes = {
+  category: PropTypes.string
+};
+
+export default TherapiesCardsList;
