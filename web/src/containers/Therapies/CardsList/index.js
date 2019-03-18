@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import faker from "faker";
-import { Container, Row, Col } from "reactstrap";
+import { Col } from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/TherapyCard";
 
@@ -65,16 +65,10 @@ const therapies = [
 
 export default class TherapiesCardsList extends Component {
   render() {
-    return (
-      <Container>
-        <Row>
-          {therapies.map(therapy => (
-            <Col key={therapy.id} md={3}>
-              <TherapyCard therapy={therapy} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    );
+    return therapies.map(therapy => (
+      <Col key={therapy.id} md={3}>
+        <TherapyCard therapy={therapy} />
+      </Col>
+    ));
   }
 }
