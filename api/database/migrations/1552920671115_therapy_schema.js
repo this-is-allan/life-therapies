@@ -7,8 +7,9 @@ class TherapySchema extends Schema {
   up() {
     this.create("therapies", table => {
       table.increments();
-      table.string("title");
-      table.text("description");
+      table.string("title").notNullable();
+      table.text("description").notNullable();
+      table.decimal("price").notNullable();
       table.timestamps();
     });
   }
