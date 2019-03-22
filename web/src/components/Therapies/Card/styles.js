@@ -22,7 +22,7 @@ export const Category = styled(Badge)`
   line-height: 16px;
   letter-spacing: normal;
   text-transform: uppercase;
-  color: rgb(118, 118, 118);
+  color: #f9f9f9;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 2px;
@@ -55,10 +55,10 @@ export const Title = styled(CardTitle)`
   font-family: "Circular Std Bold";
   color: rgb(72, 72, 72);
   max-height: 36px;
-  /* text-overflow: ellipsis; */
-  display: block;
-  /* white-space: pre-line;
+  max-height: 44px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden; */
+  overflow: hidden;
 `;

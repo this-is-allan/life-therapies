@@ -1,81 +1,36 @@
 import React, { Component } from "react";
-import faker from "faker";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
+
 import PropTypes from "prop-types";
 import { Col } from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/Card";
 
-const therapies = [
-  {
-    id: 1,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 2,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 3,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 4,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 5,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 6,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 7,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  },
-  {
-    id: 8,
-    title: faker.name.jobTitle(),
-    description: faker.lorem.paragraphs(3),
-    price: faker.commerce.price(),
-    cover: faker.image.image()
-  }
-];
-
 class TherapiesCardsList extends Component {
   componentDidMount = async () => {
-    const { category } = this.props;
+    const { category, requestTherapies } = this.props;
     category && console.log("pesquisando por:", category);
+    requestTherapies();
   };
 
   render() {
-    return therapies.map(therapy => (
-      <Col key={therapy.id} md={3}>
-        <TherapyCard therapy={therapy} />
-      </Col>
-    ));
+    const {
+      therapies: { data, loading, error }
+    } = this.props;
+
+    return loading ? (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    ) : (
+      data.map(therapy => (
+        <Col key={therapy.id} md={3}>
+          <TherapyCard therapy={therapy} />
+        </Col>
+      ))
+    );
   }
 }
 
@@ -83,4 +38,14 @@ TherapiesCardsList.propTypes = {
   category: PropTypes.string
 };
 
-export default TherapiesCardsList;
+const mapStateToProps = ({ therapies }) => ({
+  therapies
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(TherapiesActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TherapiesCardsList);
