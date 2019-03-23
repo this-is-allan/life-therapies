@@ -1,15 +1,7 @@
-import { all, takeEvery, put, call } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 
-import { Creators as TherapiesActions, Types } from "../store/ducks/therapies";
-import Api from "../services/api";
+import { watchfetchTherapies, watchTherapiesByCategory } from "./therapy";
 
-function* fetchTherapies() {
-  try {
-    const response = yield call(Api.therapies.getAll);
-    yield put(TherapiesActions.successTherapies(response));
-  } catch (e) {}
-}
-
-export default function* root() {
-  yield all([yield takeEvery(Types.REQUEST_THERAPIES, fetchTherapies)]);
+export default function* rootSaga() {
+  yield all([watchTherapiesByCategory(), watchfetchTherapies()]);
 }

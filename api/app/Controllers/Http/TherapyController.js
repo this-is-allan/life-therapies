@@ -4,6 +4,7 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 
 const Therapy = use("App/Models/Therapy");
+const Category = use("App/Models/Category");
 
 /**
  * Resourceful controller for interacting with therapies
@@ -17,10 +18,22 @@ class TherapyController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async index({ request, response }) {
-    const therapies = await Therapy.query()
-      .with("category")
-      .fetch();
+  async index({ request, response, params }) {
+    let therapies = [];
+    const category = request.input("category");
+
+    if (category) {
+      const categorySelected = await Category.findBy("name", category);
+      therapies = await categorySelected
+        .therapies()
+        .with("category")
+        .fetch();
+    } else {
+      therapies = await Therapy.query()
+        .with("category")
+        .fetch();
+    }
+
     return therapies;
   }
 

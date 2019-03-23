@@ -17,9 +17,5 @@
 const Route = use("Route");
 
 Route.group(() => {
-  Route.get("/", () => {
-    return { greeting: "Hello world in JSON" };
-  });
-
   Route.resource("therapies", "TherapyController").apiOnly();
 }).prefix("api/v1");

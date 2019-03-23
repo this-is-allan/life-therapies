@@ -5,6 +5,7 @@ import { createActions, createReducer } from "reduxsauce";
  */
 export const { Types, Creators } = createActions({
   requestTherapies: [],
+  requestTherapiesByCategory: ["category"],
   successTherapies: ["therapies"]
 });
 
@@ -22,6 +23,17 @@ const request = (state = INITIAL_STATE, action) => ({
   loading: true
 });
 
+const requestByCategory = (state = INITIAL_STATE, action) => ({
+  ...state,
+  loading: true,
+  category: action.category
+});
+
+// const requestByCategory = (state = INITIAL_STATE, action) => ({
+//   ...state,
+//   loading: true
+// });
+
 const success = (state = INITIAL_STATE, action) => ({
   ...state,
   loading: false,
@@ -32,6 +44,7 @@ const success = (state = INITIAL_STATE, action) => ({
  * Reducer
  */
 export default createReducer(INITIAL_STATE, {
+  [Types.REQUEST_THERAPIES_BY_CATEGORY]: requestByCategory,
   [Types.REQUEST_THERAPIES]: request,
   [Types.SUCCESS_THERAPIES]: success
 });

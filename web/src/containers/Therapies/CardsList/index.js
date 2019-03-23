@@ -10,9 +10,25 @@ import TherapyCard from "../../../components/Therapies/Card";
 
 class TherapiesCardsList extends Component {
   componentDidMount = async () => {
-    const { category, requestTherapies } = this.props;
-    category && console.log("pesquisando por:", category);
-    requestTherapies();
+    const {
+      category,
+      requestTherapies,
+      requestTherapiesByCategory
+    } = this.props;
+
+    if (category) {
+      requestTherapiesByCategory(category);
+    } else {
+      requestTherapies();
+    }
+  };
+
+  componentDidUpdate = async (prevProps, prevState) => {
+    const { category, requestTherapiesByCategory } = this.props;
+
+    if (prevProps.category !== category) {
+      await requestTherapiesByCategory(category);
+    }
   };
 
   render() {
