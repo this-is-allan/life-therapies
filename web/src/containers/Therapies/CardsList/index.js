@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
 
 import PropTypes from "prop-types";
-import { Col } from "reactstrap";
+import { Col, Spinner } from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/Card";
 
@@ -37,9 +37,14 @@ class TherapiesCardsList extends Component {
     } = this.props;
 
     return loading ? (
-      <div>
-        <h1>Loading...</h1>
-      </div>
+      <Col>
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "-webkit-fill-available" }}
+        >
+          <Spinner style={{ width: "3rem", height: "3rem" }} color="primary" />
+        </div>
+      </Col>
     ) : (
       data.map(therapy => (
         <Col key={therapy.id} md={3}>
