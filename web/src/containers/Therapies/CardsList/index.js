@@ -30,10 +30,10 @@ class TherapiesCardsList extends Component {
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
-    const { category, requestTherapiesByCategory } = this.props;
+    const { category, page, requestTherapiesByCategory } = this.props;
 
     if (prevProps.category !== category) {
-      await requestTherapiesByCategory(category);
+      await requestTherapiesByCategory(page, category);
     }
   };
 
