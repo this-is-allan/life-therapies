@@ -8,8 +8,11 @@ import TherapyShowScreen from "./screens/Therapy/Show";
 const App = () => (
   <Switch>
     <Route exact path="/" component={HomeScreen} />
-    <Route exact path="/:category" component={TherapyListScreen} />
-    <Route exact path="/:category/:id" component={TherapyShowScreen} />
+    <Route exact path="/therapies" component={TherapyListScreen} />
+    <Route exact path="/therapies/page=:page" component={TherapyListScreen} />
+    <Route exact path="/:category/" component={TherapyListScreen} />
+    <Route exact path="/:category/page=:page" component={TherapyListScreen} />
+    {/* <Route exact path="/:category/:id" component={TherapyShowScreen} /> */}
   </Switch>
 );
 

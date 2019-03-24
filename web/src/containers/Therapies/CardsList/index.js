@@ -4,22 +4,28 @@ import { bindActionCreators } from "redux";
 import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
 
 import PropTypes from "prop-types";
-import { Col, Spinner } from "reactstrap";
+import {
+  Col,
+  Spinner,
+  Pagination,
+  PaginationItem,
+  PaginationLink
+} from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/Card";
 
 class TherapiesCardsList extends Component {
   componentDidMount = async () => {
     const {
-      category,
       requestTherapies,
-      requestTherapiesByCategory
+      requestTherapiesByCategory,
+      category,
+      page
     } = this.props;
-
     if (category) {
-      requestTherapiesByCategory(category);
+      requestTherapiesByCategory(page, category);
     } else {
-      requestTherapies();
+      requestTherapies(page);
     }
   };
 
@@ -46,11 +52,36 @@ class TherapiesCardsList extends Component {
         </div>
       </Col>
     ) : (
-      data.map(therapy => (
-        <Col key={therapy.id} md={3}>
-          <TherapyCard therapy={therapy} />
-        </Col>
-      ))
+      <React.Fragment>
+        {data.map(therapy => (
+          <Col key={therapy.id} md={3}>
+            <TherapyCard therapy={therapy} />
+          </Col>
+        ))}
+        <Pagination aria-label="Page navigation example">
+          <PaginationItem>
+            <PaginationLink previous href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">2</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">4</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">5</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink next href="#" />
+          </PaginationItem>
+        </Pagination>
+      </React.Fragment>
     );
   }
 }

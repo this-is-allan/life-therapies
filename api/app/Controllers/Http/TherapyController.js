@@ -20,6 +20,7 @@ class TherapyController {
    */
   async index({ request, response, params }) {
     let therapies = [];
+    const page = request.input("page") || 1;
     const category = request.input("category");
 
     if (category) {
@@ -27,11 +28,11 @@ class TherapyController {
       therapies = await categorySelected
         .therapies()
         .with("category")
-        .fetch();
+        .paginate(page);
     } else {
       therapies = await Therapy.query()
         .with("category")
-        .fetch();
+        .paginate(page);
     }
 
     return therapies;

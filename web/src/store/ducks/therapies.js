@@ -4,8 +4,8 @@ import { createActions, createReducer } from "reduxsauce";
  * Action types & creators
  */
 export const { Types, Creators } = createActions({
-  requestTherapies: [],
-  requestTherapiesByCategory: ["category"],
+  requestTherapies: ["page"],
+  requestTherapiesByCategory: ["page", "category"],
   successTherapies: ["therapies"]
 });
 
@@ -20,7 +20,8 @@ const INITIAL_STATE = {
 
 const request = (state = INITIAL_STATE, action) => ({
   ...state,
-  loading: true
+  loading: true,
+  page: action.page
 });
 
 const requestByCategory = (state = INITIAL_STATE, action) => ({
@@ -29,15 +30,10 @@ const requestByCategory = (state = INITIAL_STATE, action) => ({
   category: action.category
 });
 
-// const requestByCategory = (state = INITIAL_STATE, action) => ({
-//   ...state,
-//   loading: true
-// });
-
 const success = (state = INITIAL_STATE, action) => ({
   ...state,
   loading: false,
-  data: action.therapies
+  data: action.therapies.data
 });
 
 /**

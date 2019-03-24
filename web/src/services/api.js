@@ -7,15 +7,23 @@ axios.defaults.baseURL = "http://127.0.0.1:3333/api/v1";
 
 export default {
   therapies: {
-    getAll: () => axios.get(`/therapies`).then(res => res.data),
-    getByCategory: category =>
+    getAll: (page, category) =>
       axios
         .get(`/therapies`, {
           params: {
-            category: category
+            page,
+            category
           }
         })
-        // .then(res => console.log("category!", category))
         .then(res => res.data)
+    // getByCategory: (page, category) =>
+    //   axios
+    //     .get(`/therapies`, {
+    //       params: {
+    //         page: page,
+    //         category: category
+    //       }
+    //     })
+    //     .then(res => res.data)
   }
 };

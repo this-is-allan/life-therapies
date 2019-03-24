@@ -6,7 +6,7 @@ import TherapiesCategories from "../../containers/Therapies/TherapiesCategories"
 
 const TherapyListScreen = ({
   match: {
-    params: { category }
+    params: { category, page }
   }
 }) => (
   <Fragment>
@@ -18,7 +18,7 @@ const TherapyListScreen = ({
       </Row>
 
       <Row>
-        <TherapiesCardsList category={category} />
+        <TherapiesCardsList category={category} page={page} />
       </Row>
     </Container>
   </Fragment>

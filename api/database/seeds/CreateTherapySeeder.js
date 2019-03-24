@@ -15,7 +15,7 @@ const Factory = use("Factory");
 
 class CreateTherapySeeder {
   async run() {
-    const therapies = await Factory.model("App/Models/Therapy").createMany(15);
+    const therapies = await Factory.model("App/Models/Therapy").createMany(25);
   }
 }
 
