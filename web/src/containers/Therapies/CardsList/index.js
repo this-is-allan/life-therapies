@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
 
 import PropTypes from "prop-types";
@@ -32,14 +33,15 @@ class TherapiesCardsList extends Component {
   componentDidUpdate = async (prevProps, prevState) => {
     const { category, page, requestTherapiesByCategory } = this.props;
 
-    if (prevProps.category !== category) {
+    if (prevProps.category !== category || prevProps.page !== page) {
       await requestTherapiesByCategory(page, category);
     }
   };
 
   render() {
     const {
-      therapies: { data, loading, error }
+      category,
+      therapies: { data, loading, pagination, error }
     } = this.props;
 
     return loading ? (
@@ -62,21 +64,20 @@ class TherapiesCardsList extends Component {
           <PaginationItem>
             <PaginationLink previous href="#" />
           </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">4</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">5</PaginationLink>
-          </PaginationItem>
+          {[...Array(pagination.lastPage)].map((x, i) => (
+            <PaginationItem key={i}>
+              <PaginationLink
+                tag={Link}
+                to={
+                  category
+                    ? `/${category}/page=${i + 1}`
+                    : `/therapies/page=${i + 1}`
+                }
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
           <PaginationItem>
             <PaginationLink next href="#" />
           </PaginationItem>

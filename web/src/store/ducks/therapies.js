@@ -15,6 +15,10 @@ export const { Types, Creators } = createActions({
 const INITIAL_STATE = {
   loading: false,
   data: [],
+  pagination: {
+    page: null,
+    lastPage: null
+  },
   error: null
 };
 
@@ -33,7 +37,11 @@ const requestByCategory = (state = INITIAL_STATE, action) => ({
 const success = (state = INITIAL_STATE, action) => ({
   ...state,
   loading: false,
-  data: action.therapies.data
+  data: action.therapies.data,
+  pagination: {
+    page: action.therapies.page,
+    lastPage: action.therapies.lastPage
+  }
 });
 
 /**
