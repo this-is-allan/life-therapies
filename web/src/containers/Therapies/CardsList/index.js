@@ -3,19 +3,19 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import PropTypes from "prop-types";
-import {
-  Col,
-  Spinner,
-  Pagination,
-  PaginationItem,
-  PaginationLink
-} from "reactstrap";
+import { Col, Spinner } from "reactstrap";
 
 import TherapyCard from "../../../components/Therapies/Card";
 
 class TherapiesCardsList extends Component {
+  state = {
+    activePage: 1,
+    hasMore: true
+  };
+
   componentDidMount = async () => {
     const {
       requestTherapies,
@@ -38,50 +38,67 @@ class TherapiesCardsList extends Component {
     }
   };
 
+  fetchMoreData = async () => {
+    const {
+      therapies: {
+        pagination: { page, lastPage }
+      },
+      category,
+      pagination,
+      requestInfiniteTherapies,
+      requestInfiniteTherapiesByCategory
+    } = this.props;
+
+    setTimeout(async () => {
+      if (category) {
+        await requestInfiniteTherapiesByCategory(
+          this.state.activePage,
+          category
+        );
+      } else {
+        await requestInfiniteTherapies(this.state.activePage);
+      }
+    }, 1500);
+
+    if (page == lastPage) this.setState({ hasMore: false });
+
+    this.setState({ activePage: this.state.activePage + 1 });
+  };
+
   render() {
     const {
       category,
       therapies: { data, loading, pagination, error }
     } = this.props;
 
-    return loading ? (
-      <Col>
-        <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ height: "-webkit-fill-available" }}
-        >
-          <Spinner style={{ width: "3rem", height: "3rem" }} color="primary" />
-        </div>
-      </Col>
-    ) : (
+    return (
       <React.Fragment>
-        {data.map(therapy => (
-          <Col key={therapy.id} md={3}>
-            <TherapyCard therapy={therapy} />
-          </Col>
-        ))}
-        <Pagination aria-label="Page navigation example">
-          <PaginationItem>
-            <PaginationLink previous href="#" />
-          </PaginationItem>
-          {[...Array(pagination.lastPage)].map((x, i) => (
-            <PaginationItem key={i}>
-              <PaginationLink
-                tag={Link}
-                to={
-                  category
-                    ? `/${category}/page=${i + 1}`
-                    : `/therapies/page=${i + 1}`
-                }
-              >
-                {i + 1}
-              </PaginationLink>
-            </PaginationItem>
+        <InfiniteScroll
+          className="row"
+          dataLength={data.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.hasMore}
+          scrollThreshold={0.9}
+          loader={
+            <Col>
+              <div className="d-flex justify-content-center">
+                <Spinner
+                  style={{ margin: "50px 0" }}
+                  color="primary"
+                  type="grow"
+                />
+              </div>
+            </Col>
+          }
+          refreshFunction={() => this.refresh}
+          pullDownToRefresh
+        >
+          {data.map(therapy => (
+            <Col key={therapy.id} md={3}>
+              <TherapyCard therapy={therapy} />
+            </Col>
           ))}
-          <PaginationItem>
-            <PaginationLink next href="#" />
-          </PaginationItem>
-        </Pagination>
+        </InfiniteScroll>
       </React.Fragment>
     );
   }
