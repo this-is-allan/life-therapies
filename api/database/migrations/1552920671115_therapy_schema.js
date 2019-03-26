@@ -10,6 +10,7 @@ class TherapySchema extends Schema {
       table.string("title").notNullable();
       table.text("description").notNullable();
       table.decimal("price").notNullable();
+      table.text("image");
       table.timestamps();
     });
   }

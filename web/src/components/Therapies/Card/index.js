@@ -12,8 +12,8 @@ const TherapyCard = memo(({ therapy }) => (
       width="100%"
       alt=""
       src={
-        therapy.cover
-          ? therapy.cover
+        therapy.image
+          ? therapy.image
           : "http://palavrasecliches.com/wp-content/uploads/2017/03/import_placeholder.png"
       }
     />
@@ -39,8 +39,8 @@ TherapyCard.propTypes = {
   therapy: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
-    // cover: PropTypes.string.isRequired
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired
   })
 };
 

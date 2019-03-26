@@ -19,6 +19,7 @@ Factory.blueprint("App/Models/Therapy", (faker, index, data) => {
     title: faker.sentence(),
     description: faker.paragraph({ sentences: 5 }),
     price: faker.integer({ min: 40, max: 250 }),
+    image: faker.avatar(),
     category_id: faker.integer({ min: 1, max: 7 })
   };
 
