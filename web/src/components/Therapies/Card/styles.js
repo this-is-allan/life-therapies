@@ -13,12 +13,10 @@ export const Price = styled.small`
   line-height: 18px;
   letter-spacing: normal;
   font-family: "Circular Std Book";
-  color: rgb(72, 72, 72) !important;
+  color: #ff6872;
 `;
 
 export const Category = styled(Badge)`
-  font-weight: 800;
-  font-size: 12px;
   line-height: 16px;
   letter-spacing: normal;
   text-transform: uppercase;
