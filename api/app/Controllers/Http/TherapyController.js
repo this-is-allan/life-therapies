@@ -65,7 +65,11 @@ class TherapyController {
    * @param {Response} ctx.response
    */
   async show({ params }) {
-    const therapy = await Therapy.findOrFail(params.id);
+    // const therapy = await Therapy.findOrFail(params.id);
+    const therapy = await Therapy.query()
+      .with("category")
+      .where("id", params.id)
+      .first();
     return therapy;
   }
 

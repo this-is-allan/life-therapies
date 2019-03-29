@@ -3,11 +3,11 @@ import { Container, Row, Col } from "reactstrap";
 
 import TherapiesCategories from "../../containers/Therapies/TherapiesCategories";
 import ImagesCarousel from "../../components/Therapies/ImagesCarousel";
-import TherapyContent from "../../containers/Therapies/Content";
+import TherapyContent from "../../containers/Therapy/Content";
 
 const TherapyShowScreen = ({
   match: {
-    params: { category }
+    params: { id }
   }
 }) => (
   <Fragment>
@@ -19,12 +19,7 @@ const TherapyShowScreen = ({
       </Row>
 
       <Row>
-        <Col lg={4}>
-          <ImagesCarousel sticked />
-        </Col>
-        <Col lg={8}>
-          <TherapyContent />
-        </Col>
+        <TherapyContent id={id} />
       </Row>
     </Container>
   </Fragment>

@@ -5,13 +5,16 @@ import {
   watchTherapiesByCategory,
   watchFetchInfiniteTherapies,
   watchInfiniteTherapiesByCategory
-} from "./therapy";
+} from "./therapies";
+
+import { watchfetchTherapy } from "./therapy";
 
 export default function* rootSaga() {
   yield all([
     watchTherapiesByCategory(),
     watchfetchTherapies(),
     watchFetchInfiniteTherapies(),
-    watchInfiniteTherapiesByCategory()
+    watchInfiniteTherapiesByCategory(),
+    watchfetchTherapy()
   ]);
 }
