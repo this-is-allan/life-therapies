@@ -66,7 +66,7 @@ export const Price = styled.span`
   font-size: 17px;
   font-family: "Circular Std Book";
   color: #484848;
-  background: #ffeaa7;
+  background: #fbffd4;
   /* border: 1px dashed #00cea7; */
   padding: 4px 14px;
   /* border-radius: 0.25rem; */

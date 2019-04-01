@@ -70,7 +70,7 @@ export const ShowTherapy = ({
         <Col>
           <Button
             tag={Link}
-            color="primary"
+            color="warning"
             replace
             target="_blank"
             to={`//api.whatsapp.com/send?phone=5581996180810&text=${encodeURIComponent(
