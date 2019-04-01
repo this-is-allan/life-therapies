@@ -89,8 +89,8 @@ export const ShowTherapy = ({
             <li>
               <img
                 src="https://image.flaticon.com/icons/svg/1244/1244223.svg"
-                height="40"
-                width="40"
+                height="34"
+                width="34"
                 alt=""
               />
               <span>Novo anúncio</span>
@@ -99,8 +99,8 @@ export const ShowTherapy = ({
             <li>
               <img
                 src="https://image.flaticon.com/icons/svg/167/167311.svg"
-                height="40"
-                width="40"
+                height="34"
+                width="34"
                 alt=""
               />
               (81) 9 9618-0810
