@@ -67,8 +67,6 @@ class ImagesCarousel extends Component {
       );
     });
 
-    console.log(images.length);
-
     return images.length === 1 ? (
       <img
         src={images[0].src}
