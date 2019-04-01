@@ -103,7 +103,7 @@ export const ShowTherapy = ({
                 width="34"
                 alt=""
               />
-              (81) 9 9618-0810
+              <span>(81) 9 9618-0810</span>
             </li>
           </Highlights>
           <hr className="my-4" style={{ borderColor: "#EBEBEB" }} />
