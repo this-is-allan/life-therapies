@@ -17,7 +17,7 @@ export const Category = styled.small`
 `;
 
 export const Title = styled.h1`
-  font-size: 46px;
+  font-size: 36px;
   line-height: 1.1304347826086956em;
   word-wrap: break-word;
   font-weight: 800;
@@ -30,9 +30,10 @@ export const Highlights = styled.ul`
   padding: 0;
   li {
     margin: 10px 0;
+    clear: both;
     span {
       font-family: "Circular Std Book";
-      margin: 0px;
+      margin: 0px 5px;
       word-wrap: break-word;
       font-size: 16px;
       font-weight: 400;
@@ -59,4 +60,14 @@ export const InfoSection = styled.div`
     line-height: 1.4444444444444444em;
     color: #484848;
   }
+`;
+
+export const Price = styled.span`
+  font-size: 17px;
+  font-family: "Circular Std Book";
+  color: #484848;
+  background: #ffeaa7;
+  /* border: 1px dashed #00cea7; */
+  padding: 4px 14px;
+  /* border-radius: 0.25rem; */
 `;

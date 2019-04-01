@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import TherapiesCategories from "../../containers/Therapies/TherapiesCategories";
-import ImagesCarousel from "../../components/Therapies/ImagesCarousel";
 import TherapyContent from "../../containers/Therapy/Content";
 
 const TherapyShowScreen = ({
@@ -13,13 +12,15 @@ const TherapyShowScreen = ({
   <Fragment>
     <Container>
       <Row className="d-flex justify-content-center">
-        <Col xs={12}>
+        <Col>
           <TherapiesCategories />
         </Col>
       </Row>
 
       <Row>
-        <TherapyContent id={id} />
+        <Col>
+          <TherapyContent id={id} />
+        </Col>
       </Row>
     </Container>
   </Fragment>

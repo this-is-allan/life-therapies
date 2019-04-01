@@ -1,12 +1,12 @@
-import React, { memo, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
-import { Row, Col } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 
 import ImagesCarousel from "../../Therapies/ImagesCarousel";
-import { Highlights, Category, Title, InfoSection } from "./styles";
+import { Highlights, Category, Title, Price, InfoSection } from "./styles";
 
 const items = [
   {
@@ -29,7 +29,9 @@ const items = [
   // }
 ];
 
-export const ShowTherapy = ({ therapy: { category, title, description } }) => (
+export const ShowTherapy = ({
+  therapy: { category, title, description, price }
+}) => (
   <Row>
     <Col lg={4}>
       <ImagesCarousel sticked images={items} />
@@ -50,26 +52,60 @@ export const ShowTherapy = ({ therapy: { category, title, description } }) => (
         </Col>
       </Row>
 
-      <Row>
+      <Row className="py-1">
         <Col>
-          <Highlights>
-            <li>
-              <span>(81) 9 9618-0810</span>
-            </li>
-          </Highlights>
+          <NumberFormat
+            value={price}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"R$"}
+            renderText={value => (
+              <Price color={category.color}>{value} por hora</Price>
+            )}
+          />
+        </Col>
+      </Row>
+
+      <Row className="py-1">
+        <Col>
+          <Button
+            tag={Link}
+            color="primary"
+            replace
+            target="_blank"
+            to={`//api.whatsapp.com/send?phone=5581996180810&text=${encodeURIComponent(
+              "olá, tudo bem?"
+            )}`}
+          >
+            Iniciar conversa
+          </Button>
         </Col>
       </Row>
 
       <Row>
         <Col>
           <hr className="my-4" style={{ borderColor: "#EBEBEB" }} />
-          <img
-            src="https://a0.muscache.com/airbnb/static/9ee78aa12d1a51a64b1dc566a4391ba5.gif"
-            height="40"
-            width="40"
-            alt=""
-          />
-          Novo anúncio
+          <Highlights>
+            <li>
+              <img
+                src="https://image.flaticon.com/icons/svg/1244/1244223.svg"
+                height="40"
+                width="40"
+                alt=""
+              />
+              <span>Novo anúncio</span>
+            </li>
+
+            <li>
+              <img
+                src="https://image.flaticon.com/icons/svg/167/167311.svg"
+                height="40"
+                width="40"
+                alt=""
+              />
+              (81) 9 9618-0810
+            </li>
+          </Highlights>
           <hr className="my-4" style={{ borderColor: "#EBEBEB" }} />
         </Col>
       </Row>
