@@ -74,9 +74,7 @@ class ImagesCarousel extends Component {
         className="sticky-top"
         style={{
           width: "100%",
-          height: "100%",
-          maxHeight: "100vh",
-          maxWidth: "100vw",
+          height: "50%",
           borderRadius: "2px",
           objectFit: "cover",
           objectPosition: "center center"
