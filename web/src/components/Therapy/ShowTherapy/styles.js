@@ -28,6 +28,7 @@ export const Title = styled.h1`
 export const Highlights = styled.ul`
   list-style: none;
   padding: 0;
+
   li {
     margin: 10px 0;
     clear: both;

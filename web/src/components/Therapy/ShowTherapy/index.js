@@ -30,7 +30,16 @@ const items = [
 ];
 
 export const ShowTherapy = ({
-  therapy: { category, title, description, price }
+  therapy: {
+    category,
+    title,
+    description,
+    price,
+    whatsapp,
+    phone,
+    instagram,
+    email
+  }
 }) => (
   <Row>
     <Col lg={4}>
@@ -89,8 +98,8 @@ export const ShowTherapy = ({
             <li>
               <img
                 src="https://image.flaticon.com/icons/svg/1244/1244223.svg"
-                height="34"
-                width="34"
+                height="30"
+                width="30"
                 alt=""
               />
               <span>Novo anúncio</span>
@@ -99,11 +108,41 @@ export const ShowTherapy = ({
             <li>
               <img
                 src="https://image.flaticon.com/icons/svg/167/167311.svg"
-                height="34"
-                width="34"
+                height="30"
+                width="30"
                 alt=""
               />
-              <span>(81) 9 9618-0810</span>
+              <span>{whatsapp}</span>
+            </li>
+
+            <li>
+              <img
+                src="https://image.flaticon.com/icons/svg/254/254043.svg"
+                height="30"
+                width="30"
+                alt=""
+              />
+              <span>{phone}</span>
+            </li>
+
+            <li>
+              <img
+                src="https://image.flaticon.com/icons/svg/1409/1409946.svg"
+                height="30"
+                width="30"
+                alt=""
+              />
+              <span>{instagram}</span>
+            </li>
+
+            <li>
+              <img
+                src="https://image.flaticon.com/icons/svg/732/732200.svg"
+                height="30"
+                width="30"
+                alt=""
+              />
+              <span>{email}</span>
             </li>
           </Highlights>
           <hr className="my-4" style={{ borderColor: "#EBEBEB" }} />

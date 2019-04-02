@@ -10,6 +10,10 @@ class TherapySchema extends Schema {
       table.string("title").notNullable();
       table.text("description").notNullable();
       table.decimal("price").notNullable();
+      table.string("whatsapp");
+      table.string("email");
+      table.string("instagram");
+      table.string("phone");
       table.text("image");
       table.timestamps();
     });
