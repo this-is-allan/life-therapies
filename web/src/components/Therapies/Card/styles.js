@@ -3,7 +3,7 @@ import { Card, CardImg, CardBody, CardTitle, Badge } from "reactstrap";
 
 export const CardStyled = styled(Card)`
   background: #fff;
-  margin: 5px 0;
+  margin: 12px 0;
   border: 0 !important;
   text-decoration: none !important;
   border-radius: 6px;
@@ -13,10 +13,11 @@ export const CardStyled = styled(Card)`
 export const Price = styled.small`
   font-weight: normal;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 28px;
   letter-spacing: normal;
   font-family: "Circular Std Book";
-  color: #ff6872;
+  /* color: #ff6872; */
+  color: #888;
 `;
 
 export const Category = styled(Badge)`
@@ -37,14 +38,14 @@ export const Category = styled(Badge)`
 export const Image = styled(CardImg)`
   object-fit: cover;
   object-position: 50% 50%;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 `;
 
 export const Body = styled(CardBody)`
-  padding: 8px !important;
+  padding: 12px 8px !important;
 `;
 
 export const Title = styled(CardTitle)`
