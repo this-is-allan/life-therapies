@@ -91,7 +91,6 @@ class TherapiesCardsList extends Component {
             </Col>
           }
           refreshFunction={() => this.refresh}
-          pullDownToRefresh
         >
           {data.map(therapy => (
             <Col key={therapy.id} md={3}>
