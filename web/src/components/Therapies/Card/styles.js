@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { Card, CardImg, CardBody, CardTitle, Badge } from "reactstrap";
 
 export const CardStyled = styled(Card)`
+  background: #fff;
   margin: 5px 0;
-  border: none !important;
+  border: 0 !important;
   text-decoration: none !important;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 `;
 
 export const Price = styled.small`
@@ -41,7 +44,7 @@ export const Image = styled(CardImg)`
 `;
 
 export const Body = styled(CardBody)`
-  padding: 8px 0 !important;
+  padding: 8px !important;
 `;
 
 export const Title = styled(CardTitle)`

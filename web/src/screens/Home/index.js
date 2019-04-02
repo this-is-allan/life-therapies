@@ -5,6 +5,8 @@ import TherapiesCardsList from "../../containers/Therapies/CardsList";
 import TherapiesCategories from "../../containers/Therapies/TherapiesCategories";
 import Header from "../../components/Header";
 
+document.body.style.background = "#F8F9FD";
+
 const HomeScreen = () => (
   <Fragment>
     <Header />
