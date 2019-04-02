@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Card, CardImg, CardBody, CardTitle, Badge } from "reactstrap";
 
 export const Category = styled.small`
   font-weight: 800;
@@ -27,11 +26,21 @@ export const Title = styled.h1`
 
 export const Highlights = styled.ul`
   list-style: none;
+  margin: 0;
   padding: 0;
 
   li {
-    margin: 10px 0;
-    clear: both;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+
+    @media screen and (max-width: 600px) {
+      display: block;
+      width: auto;
+      margin: 25px auto;
+    }
+
     span {
       font-family: "Circular Std Book";
       margin: 0px 5px;
