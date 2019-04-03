@@ -42,7 +42,7 @@ const categories = [
 ];
 
 const settings = {
-  className: "d-flex justify-content-center py-3 my-2",
+  className: "d-flex justify-content-center py-3 my-2 zindex-dropdown",
   variableWidth: true,
   dots: false,
   arrows: false,

@@ -96,3 +96,7 @@ button:hover {
 .btn:focus {
   box-shadow: none !important;
 }
+
+.zindex-dropdown {
+  z-index: 1000;
+}

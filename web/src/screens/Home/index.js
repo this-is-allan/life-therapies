@@ -10,13 +10,8 @@ document.body.style.background = "#F8F9FD";
 const HomeScreen = () => (
   <Fragment>
     <Header />
+    <TherapiesCategories />
     <Container>
-      <Row className="d-flex justify-content-center">
-        <Col xs={12}>
-          <TherapiesCategories />
-        </Col>
-      </Row>
-
       <Row>
         <Col>
           <TherapiesCardsList />

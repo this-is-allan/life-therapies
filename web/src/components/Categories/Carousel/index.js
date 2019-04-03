@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import Slider from "react-slick";
 
-import "./style.css";
+import { Carousel } from "./styles";
+// import "./style.css";
 
 const CategoriesCarousel = ({ settings, categories }) => (
-  <Slider {...settings}>
+  <Carousel {...settings}>
     {categories.map(category => (
       <div key={category.slug}>
         <Button tag={Link} to={`${category.uri}`} className={`btn-icon`}>
@@ -16,7 +17,7 @@ const CategoriesCarousel = ({ settings, categories }) => (
         </Button>
       </div>
     ))}
-  </Slider>
+  </Carousel>
 );
 
 CategoriesCarousel.propTypes = {
