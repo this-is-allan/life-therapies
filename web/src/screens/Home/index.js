@@ -18,7 +18,9 @@ const HomeScreen = () => (
       </Row>
 
       <Row>
-        <TherapiesCardsList />
+        <Col>
+          <TherapiesCardsList />
+        </Col>
       </Row>
     </Container>
   </Fragment>

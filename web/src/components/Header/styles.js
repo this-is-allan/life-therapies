@@ -14,10 +14,14 @@ export const HeaderWrapper = styled.div`
     left: 50%;
     position: absolute;
     height: auto;
-    min-width: 980px;
+    /* min-width: 980px; */
     pointer-events: none;
     transform: translateX(-50%);
     width: calc(100% + 2px);
+    z-index: 1;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 
