@@ -18,4 +18,4 @@ const Route = use("Route");
 
 Route.group(() => {
   Route.resource("therapies", "TherapyController").apiOnly();
-}).prefix("api/v1");
+}).prefix("v1");
