@@ -1,9 +1,6 @@
 import axios from "axios";
 
-// const token = "e0e6e2967dde85c9b0c604989ae1af47";
-
-axios.defaults.baseURL = "https://api.terapias.me/v1";
-// axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 export default {
   therapies: {
