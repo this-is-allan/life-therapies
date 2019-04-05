@@ -1,4 +1,0 @@
-language: javascript
-
-script:
-  - npm run build
