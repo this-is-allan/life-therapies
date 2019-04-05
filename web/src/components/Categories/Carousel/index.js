@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Button } from "reactstrap";
-import Slider from "react-slick";
 
 import { Carousel } from "./styles";
-// import "./style.css";
 
 const CategoriesCarousel = ({ settings, categories }) => (
   <Carousel {...settings}>

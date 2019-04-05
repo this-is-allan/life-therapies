@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
 import { Creators as TherapiesActions } from "../../../store/ducks/therapies";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -44,7 +43,6 @@ class TherapiesCardsList extends Component {
         pagination: { page, lastPage }
       },
       category,
-      pagination,
       requestInfiniteTherapies,
       requestInfiniteTherapiesByCategory
     } = this.props;
@@ -60,15 +58,14 @@ class TherapiesCardsList extends Component {
       }
     }, 1500);
 
-    if (page == lastPage) this.setState({ hasMore: false });
+    if (page === lastPage) this.setState({ hasMore: false });
 
     this.setState({ activePage: this.state.activePage + 1 });
   };
 
   render() {
     const {
-      category,
-      therapies: { data, loading, pagination, error }
+      therapies: { data }
     } = this.props;
 
     return (

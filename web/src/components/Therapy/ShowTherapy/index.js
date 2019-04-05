@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
 import { Row, Col, Button } from "reactstrap";

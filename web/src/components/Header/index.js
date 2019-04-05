@@ -19,7 +19,6 @@ const Header = () => {
         </Row>
       </Container>
       <svg
-        class="selfServeStepsWave-_t0iR4 wave-38gW17"
         xmlns="http://www.w3.org/2000/svg"
         width="1440"
         height="267"

@@ -1,11 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Row, Col, Spinner } from "reactstrap";
 import { Creators as TherapyActions } from "../../../store/ducks/therapy";
 
 import ShowTherapy from "../../../components/Therapy/ShowTherapy";
-import ImagesCarousel from "../../../components/Therapies/ImagesCarousel";
 
 class TherapyContent extends Component {
   componentDidMount = async () => {
