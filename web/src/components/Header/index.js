@@ -12,7 +12,7 @@ const Header = () => {
             <HeaderTitle>
               Encontre a terapia perfeita para resolver o seu problema.
               <Button color="warning" outline>
-                Quero criar a minha
+                Sou terapeuta e quero criar a minha
               </Button>
             </HeaderTitle>
           </Col>
