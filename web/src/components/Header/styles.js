@@ -36,6 +36,8 @@ export const HeaderButton = styled(Button)`
   font-family: "Circular Std Bold";
 
   @media all and (max-width: 480px) {
+    background: #ffc107 !important;
+    color: #212529 !important;
     width: 100%;
     display: block;
   }
