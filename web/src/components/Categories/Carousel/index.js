@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 
@@ -9,7 +9,13 @@ const CategoriesCarousel = ({ settings, categories }) => (
   <Carousel {...settings}>
     {categories.map(category => (
       <div key={category.slug}>
-        <Button tag={Link} to={`${category.uri}`} className={`btn-icon`}>
+        <Button
+          tag={NavLink}
+          to={`${category.uri}`}
+          className={`btn-icon`}
+          activeClassName="is-active"
+          exact
+        >
           {category.name}
           <img src={category.icon} alt={category.slug} />
         </Button>

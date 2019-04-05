@@ -16,7 +16,7 @@ export const Carousel = styled(Slider)`
     display: flex !important;
     align-items: center !important;
 
-    :hover {
+    &:hover {
       border-color: #ffc107 !important;
     }
 
@@ -26,7 +26,8 @@ export const Carousel = styled(Slider)`
       margin: 0 5px;
     }
 
-    @media only screen and (min-width: 768px) {
+    &.is-active {
+      border-color: #ffc107 !important;
     }
   }
 `;
