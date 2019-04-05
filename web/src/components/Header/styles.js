@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Button } from "reactstrap";
+
 export const HeaderWrapper = styled.div`
   position: relative;
   padding: 50px 0;
@@ -14,10 +16,8 @@ export const HeaderWrapper = styled.div`
     left: 50%;
     position: absolute;
     height: auto;
-    /* min-width: 980px; */
     pointer-events: none;
     transform: translateX(-50%);
-    width: calc(100% + 2px);
     z-index: 1;
     @media screen and (max-width: 600px) {
       display: none;
@@ -29,4 +29,14 @@ export const HeaderTitle = styled.h1`
   color: #fff;
   font-size: 38px;
   font-family: "Circular Std Bold";
+`;
+
+export const HeaderButton = styled(Button)`
+  /* font-size: 38px; */
+  font-family: "Circular Std Bold";
+
+  @media all and (max-width: 480px) {
+    width: 100%;
+    display: block;
+  }
 `;

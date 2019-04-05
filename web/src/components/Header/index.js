@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Container, Row, Col, Button } from "reactstrap";
-import { HeaderWrapper, HeaderTitle } from "./styles";
+import { Container, Row, Col } from "reactstrap";
+import { HeaderWrapper, HeaderTitle, HeaderButton } from "./styles";
 
 const Header = () => {
   return (
@@ -11,10 +11,10 @@ const Header = () => {
           <Col>
             <HeaderTitle>
               Encontre a terapia perfeita para resolver o seu problema.
-              <Button color="warning" outline>
-                Sou terapeuta e quero criar a minha
-              </Button>
             </HeaderTitle>
+            <HeaderButton color="warning" outline>
+              Sou terapeuta e quero criar a minha
+            </HeaderButton>
           </Col>
         </Row>
       </Container>
