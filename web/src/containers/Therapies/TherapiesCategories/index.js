@@ -13,31 +13,31 @@ const categories = [
     name: "Tarot",
     uri: "/tarot",
     slug: "tarot",
-    icon: "https://image.flaticon.com/icons/svg/867/867831.svg"
+    icon: "https://cdn-icons-png.flaticon.com/512/867/867831.png"
   },
   {
     name: "Astrologia",
     uri: "/astrologia",
     slug: "astrologia",
-    icon: "https://image.flaticon.com/icons/svg/1146/1146295.svg"
+    icon: "https://cdn-icons.flaticon.com/png/512/1146/premium/1146295.png?token=exp=1634773129~hmac=c3d3ac63f30c81722cb796114e6f8c95"
   },
   {
     name: "Hipnose",
     uri: "/hipnose",
     slug: "hipnose",
-    icon: "https://image.flaticon.com/icons/svg/820/820763.svg"
+    icon: "https://image.flaticon.com/icons/png/512/820/820763.png"
   },
   {
     name: "Thetahealing",
     uri: "/thetahealing",
     slug: "thetahealing",
-    icon: "https://image.flaticon.com/icons/svg/890/890666.svg"
+    icon: "https://cdn-icons-png.flaticon.com/512/890/890666.png"
   },
   {
     name: "Florais",
     uri: "/florais",
     slug: "florais",
-    icon: "https://image.flaticon.com/icons/svg/1450/1450795.svg"
+    icon: "https://cdn-icons-png.flaticon.com/512/1450/1450795.png"
   }
 ];
 
